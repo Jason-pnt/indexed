@@ -33,7 +33,7 @@ driver.get('https://tools.keycdn.com/geo')
 cityName = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[1]').text)
 zipcode = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[3]').text)
 country = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[4]').text)
-print('Now test begining country: ' + country + ' city: ' + cityName + ' Zipcode: '+ zipcode + '\n\n')
+print('\n\nNow test begining country: ' + country + ' city: ' + cityName + ' Zipcode: '+ zipcode + '\n\n')
 
 driver.execute_script("document.body.style.zoom='0.9'")
 
