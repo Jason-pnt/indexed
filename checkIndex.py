@@ -65,6 +65,7 @@ with open('test.csv','r') as f:
             bandList = []
             for bands in soup.select('#brandsRefinements > ul > li > span > a > span'):
                 bandList.append(bands.text)
+            print(bandList)
             if 'READY PARD' in bandList:
                 banded='Y'
             else:
