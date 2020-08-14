@@ -33,8 +33,10 @@ driver.execute_script("document.body.style.zoom='0.9'")
 
 with open('test.csv','r') as f:
     reader = csv.reader(f)
-    for row in reader:      
-        if (len(row) != 0): 
+    for row in reader:
+        if (len(row) != 0):
+            indexed=''
+            banded=''
             lineToStr = row[0]
             lineToList = lineToStr.split(' ')
             linkStr='s?k=' #+ sys.argv[1] + '+'
@@ -43,6 +45,7 @@ with open('test.csv','r') as f:
             linkStr= linkStr[:-1]
             driver.maximize_window()
             keyword = linkStr.replace('+', ' ')[4:]
+            bandlinkStr = linkStr
             linkStr = list(linkStr)
             asinNum = linkStr.index('=') + 1
             linkStr.insert(asinNum, sys.argv[1] + '+')
@@ -51,7 +54,19 @@ with open('test.csv','r') as f:
             soup = BeautifulSoup(driver.page_source, "html.parser")
             asin = soup.find_all(href=re.compile("READY-PARD-"))
             if len(asin):
-                print(keyword , '-Y-index')
+                indexed='Y'
             else:
-                print(keyword , '-N-index')
+                indexed='N'
+            driver.get('https://www.amazon.com/' + bandlinkStr + '&language=en_US')
+            count = driver.find_element_by_xpath('//*[@id="search"]/span/div/span/h1/div/div[1]/div/div/span[1]').text
+            count = count.split(' ')[-3].replace(',','')
+            soup = BeautifulSoup(driver.page_source, "html.parser")
+            bandList = []
+            for bands in soup.select('#brandsRefinements > ul > li > span > a > span'):
+                bandList.append(bands.text)
+            if 'READY PARD' in bandList:
+                banded='Y'
+            else:
+                banded='N'
+            print('Keyword: '+ keyword +' Index: '+ indexed +' Band : '+banded+' Number: '+ count)
 driver.quit()
