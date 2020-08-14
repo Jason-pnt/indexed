@@ -57,6 +57,7 @@ with open('test.csv','r') as f:
                 indexed='Y'
             else:
                 indexed='N'
+            soup=''
             driver.get('https://www.amazon.com/' + bandlinkStr + '&language=en_US')
             count = driver.find_element_by_xpath('//*[@id="search"]/span/div/span/h1/div/div[1]/div/div/span[1]').text
             count = count.split(' ')[-3].replace(',','')
