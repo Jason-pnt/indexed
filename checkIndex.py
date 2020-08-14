@@ -29,6 +29,11 @@ chrome_options.add_argument('--start-maximized')
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get('https://www.amazon.com/?currency=USD&language=en_US')
 time.sleep(15)
+driver.get('https://tools.keycdn.com/geo')
+cityName = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[1]').text)
+zipcode = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[3]').text)
+print('Now test begining city name: ' + cityName + ' zip code: '+ zipcode + '\n\n')
+
 driver.execute_script("document.body.style.zoom='0.9'")
 
 with open('test.csv','r') as f:
