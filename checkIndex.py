@@ -27,13 +27,19 @@ chrome_options.add_argument('--ignore-certificate-errors')
 chrome_options.add_argument('--start-maximized')
 
 driver = webdriver.Chrome(chrome_options=chrome_options)
-driver.get('https://www.amazon.com/?currency=USD&language=en_US')
-time.sleep(15)
 driver.get('https://tools.keycdn.com/geo')
 cityName = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[1]').text)
 zipcode = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[3]').text)
 country = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[4]').text)
 print('\n\nNow test begining country: ' + country + ' city: ' + cityName + ' Zipcode: '+ zipcode + '\n\n')
+
+driver.get('https://www.amazon.com/?currency=USD&language=en_US')
+driver.find_element_by_xpath('//*[@id="nav-packard-glow-loc-icon"]').click()
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="GLUXZipUpdateInput"]').send_keys('10001')
+time.sleep(5)
+driver.find_element_by_xpath('//*[@id="GLUXZipUpdate"]/span/input').click()
+time.sleep(5)
 
 driver.execute_script("document.body.style.zoom='0.9'")
 
