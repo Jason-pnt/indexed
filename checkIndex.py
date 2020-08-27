@@ -34,6 +34,7 @@ country = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[4]
 print('\n\nNow test begining country: ' + country + ' city: ' + cityName + ' Zipcode: '+ zipcode + '\n\n')
 
 driver.get('https://www.amazon.com/?currency=USD&language=en_US')
+time.sleep(5)
 driver.find_element_by_xpath('//*[@id="nav-packard-glow-loc-icon"]').click()
 time.sleep(5)
 driver.find_element_by_xpath('//*[@id="GLUXZipUpdateInput"]').send_keys('10001')
