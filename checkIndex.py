@@ -85,5 +85,5 @@ with open('test.csv','r') as f:
                 banded='Y'
             else:
                 banded='N'
-            print(':Keyword: '+ keyword +' :Index: '+ indexed +' Band: '+banded+' Number: '+ count)
+            print(':Keyword: '+ keyword +' :Index: '+ indexed +' :Band: '+banded+' :Number: '+ count)
 driver.quit()
