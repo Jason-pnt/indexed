@@ -67,7 +67,7 @@ with open('test.csv','r') as f:
             linkStr = ''.join(linkStr)
             driver.get('https://www.amazon.com/' + linkStr + '&language=en_US')
             soup = BeautifulSoup(driver.page_source, "html.parser")
-            asin = soup.find_all(href=re.compile("READY-PARD-"))
+            asin = soup.find_all(href=re.compile(sys.argv[1]))
             if len(asin):
                 indexed='Y'
             else:

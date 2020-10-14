@@ -10,6 +10,6 @@ repo = Repo(os.path.abspath(father_path))
 time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 commitName = ('Checking keyword whether amazon indexed ')
 commitName = commitName + time_now
-repo.index.add(['test.csv'])
+repo.index.add(['*'])
 repo.index.commit(commitName)
 subprocess.check_call(['git', 'push', 'origin', 'master'])
