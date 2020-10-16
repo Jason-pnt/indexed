@@ -3,3 +3,4 @@ pillow
 Beautifulsoup4
 pandas
 openpyxl
+xlrd
