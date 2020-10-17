@@ -1,4 +1,5 @@
 #!/bin/sh
+cd $(dirname $0)
 git pull
 git checkout .
 for  n in `find keyword -name "*.xlsx"`
