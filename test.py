@@ -1,6 +1,7 @@
 #-*-coding: utf-8 -*-
 # pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-#pip3 install pillow selenium gitpython bs4 pandas pytz
+# pip3 install pillow selenium gitpython bs4 pandas pytz
+# ssh-keygen -t rsa -C "email@github.com"
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.alert import Alert 
@@ -35,14 +36,14 @@ country = (driver.find_element_by_xpath('//*[@id="geoResult"]/div[1]/dl[1]/dd[4]
 print('\n\nNow test begining country: ' + country + ' city: ' + cityName + ' Zipcode: '+ zipcode + '\n\n')
 
 driver.get('https://www.amazon.com/?currency=USD&language=en_US')
-time.sleep(10)
-driver.find_element_by_xpath('//*[@id="nav-packard-glow-loc-icon"]').click()
-time.sleep(10)
-driver.find_element_by_xpath('//*[@id="GLUXZipUpdateInput"]').send_keys('10001')
-time.sleep(10)
-driver.find_element_by_xpath('//*[@id="GLUXZipUpdate"]/span/input').click()
-time.sleep(10)
-driver.get('https://www.amazon.com/')
+#time.sleep(10)
+#driver.find_element_by_xpath('//*[@id="nav-packard-glow-loc-icon"]').click()
+#time.sleep(10)
+#driver.find_element_by_xpath('//*[@id="GLUXZipUpdateInput"]').send_keys('10001')
+#time.sleep(10)
+#driver.find_element_by_xpath('//*[@id="GLUXZipUpdate"]/span/input').click()
+#time.sleep(10)
+#driver.get('https://www.amazon.com/')
 print('Amazon ZIPCode:'+ driver.find_element_by_xpath('//*[@id="glow-ingress-line2"]').text)
 
 driver.execute_script("document.body.style.zoom='0.9'")
