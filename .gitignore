@@ -1,4 +1,4 @@
 debug.log
-keyword/*.csv
-keyword/*.xlsx
+/keyword/*.csv
+/keyword/*.xlsx
 
