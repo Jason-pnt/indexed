@@ -44,7 +44,7 @@ driver.get('https://www.amazon.com/?currency=USD&language=en_US')
 #driver.find_element_by_xpath('//*[@id="GLUXZipUpdate"]/span/input').click()
 #time.sleep(10)
 #driver.get('https://www.amazon.com/')
-print('Amazon ZIPCode:'+ driver.find_element_by_xpath('//*[@id="glow-ingress-line2"]').text)
+#print('Amazon ZIPCode:'+ driver.find_element_by_xpath('//*[@id="glow-ingress-line2"]').text)
 
 driver.execute_script("document.body.style.zoom='0.9'")
 
