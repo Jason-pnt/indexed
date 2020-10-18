@@ -1,4 +1,5 @@
 debug.log
 /keyword/*.csv
 /keyword/*.xlsx
+!/keyword/.gitkeep
 
